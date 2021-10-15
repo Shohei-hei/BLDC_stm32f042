@@ -1,0 +1,7 @@
+mylib.c:11:7:my_sin	40	static
+mylib.c:23:7:my_cos	40	static
+mylib.c:39:7:my_sqrt	32	static
+mylib.c:55:6:HIP	24	static
+mylib.c:59:6:dq2uvw	32	static
+mylib.c:75:9:pi_control	32	static
+mylib.c:90:6:uvw2dq	16	static

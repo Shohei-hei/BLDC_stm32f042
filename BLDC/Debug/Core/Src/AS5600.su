@@ -1,0 +1,2 @@
+AS5600.c:10:6:AS5600_Write	32	static
+AS5600.c:20:10:AS5600_mem_read	48	static
