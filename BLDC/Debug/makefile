@@ -61,8 +61,8 @@ all: main-build
 main-build: BLDC.elf secondary-outputs
 
 # Tool invocations
-BLDC.elf: $(OBJS) $(USER_OBJS) D:\cube\ workspace\BLDC\STM32F042K6UX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "BLDC.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m0 -T"D:\cube workspace\BLDC\STM32F042K6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BLDC.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+BLDC.elf: $(OBJS) $(USER_OBJS) D:\BLDC_stm32f042\BLDC\STM32F042K6UX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "BLDC.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m0 -T"D:\BLDC_stm32f042\BLDC\STM32F042K6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BLDC.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
