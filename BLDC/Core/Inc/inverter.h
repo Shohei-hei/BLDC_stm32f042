@@ -23,7 +23,7 @@ extern TIM_HandleTypeDef htim1;
 /* typedef */
 
 /* function */
-void Set_inverter(m_carrier_t value, int16_t max);
+void Set_inverter(m_carrier_t value, uint32_t max);
 
 
 #endif /* INC_INVERTER_H_ */

@@ -7,12 +7,12 @@
 
 #include "inverter.h"
 
-void Set_inverter(m_carrier_t value, int16_t max){
-	int16_t u = 0, v = 0, w = 0;
+void Set_inverter(m_carrier_t value, uint32_t max){
+	uint32_t u, v, w;
 
-	u = (value.Vu)*max/2 + max/2;
-	v = (value.Vv)*max/2 + max/2;
-	w = (value.Vw)*max/2 + max/2;
+	u = (uint32_t)((value.Vu)*max/2) + max/2;
+	v = (uint32_t)((value.Vv)*max/2) + max/2;
+	w = (uint32_t)((value.Vw)*max/2) + max/2;
 
 /*	u = max*9/10;
 	v = max*5/10;

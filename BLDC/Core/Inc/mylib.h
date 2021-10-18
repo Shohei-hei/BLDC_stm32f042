@@ -20,18 +20,12 @@
 #define SQRT_2p3	0.81649658092			//sqrt(2/3)
 
 typedef struct{
-	float SIN0;				//sinθの値
-	float COS0;				//cosθの値
+	float Vu;			//U相電圧指令
+	float Vv;			//V相電圧指令
+	float Vw;			//W相電圧指令
 
-	int16_t Vu;			//U相電圧指令
-	int16_t Vv;			//V相電圧指令
-	int16_t Vw;			//W相電圧指令
-
-	int16_t Va;			//α軸電圧指令
-	int16_t Vb;			//β軸電圧指令
-
-	int16_t Vd;			//d軸電圧指令
-	int16_t Vq;			//q軸電圧指令
+	float Vd;			//d軸電圧指令
+	float Vq;			//q軸電圧指令
 } m_carrier_t;
 
 typedef struct{

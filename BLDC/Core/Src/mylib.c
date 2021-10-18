@@ -16,7 +16,9 @@ float my_sin(float x){
 		t *= -(x*x)/((i*2)*(i*2 + 1));
 		result += t;
 	}
-
+	if(result>1) result = 1;
+	else if(result<-1) result = -1;
+	else;
 	return result;
 }
 
@@ -33,6 +35,9 @@ float my_cos(float x){		// -PI =< x =< PI
 		result += t;
 	}
 
+	if(result>1) result = 1;
+	else if(result<-1) result = -1;
+	else;
 	return result;
 }
 
@@ -57,19 +62,19 @@ void HIP(m_carrier_t *a, float *Vmax, float *Vmin){
 
 //ts エンコーダ値更新周期[s], vm モータ電圧[mV], Fe1 PWMキャリア周波数[Hz]
 void dq2uvw(m_carrier_t *a, int16_t angle){
-	float rad;
+	float rad, Va, Vb, sin0, cos0;
 
-	rad = (float)angle*TWOPI/360;
+	rad = (float)angle*TWOPI/3600;
 
-	a->SIN0 = my_sin(rad);
-	a->COS0 = my_cos(rad);
+	sin0 = my_sin(rad);
+	cos0 = my_cos(rad);
 
-	a->Va = a->COS0*a->Vd - a->SIN0*a->Vq;
-	a->Vb = a->SIN0*a->Vd + a->COS0*a->Vq;
+	Va = cos0*a->Vd - sin0*a->Vq;
+	Vb = sin0*a->Vd + cos0*a->Vq;
 
-	a->Vu = SQRT_2p3*a->Va;
-	a->Vv = SQRT_2p3*((-1/2)*a->Va + (SQRT_3/2)*a->Vb);
-	a->Vw = SQRT_2p3*((-1/2)*a->Va + (-1)*(SQRT_3/2)*a->Vb);
+	a->Vu = SQRT_2p3*Va;
+	a->Vv = SQRT_2p3*((-1/2)*Va + (SQRT_3/2)*Vb);
+	a->Vw = SQRT_2p3*((-1/2)*Va + (-1)*(SQRT_3/2)*Vb);
 }
 
 int16_t pi_control(pi_param_t *a, int16_t meas){
