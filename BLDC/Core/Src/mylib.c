@@ -73,8 +73,8 @@ void dq2uvw(m_carrier_t *a, int16_t angle){
 	Vb = sin0*a->Vd + cos0*a->Vq;
 
 	a->Vu = SQRT_2p3*Va;
-	a->Vv = SQRT_2p3*((-1/2)*Va + (SQRT_3/2)*Vb);
-	a->Vw = SQRT_2p3*((-1/2)*Va + (-1)*(SQRT_3/2)*Vb);
+	a->Vv = SQRT_2p3*((-1)*Va/2 + SQRT_3*Vb/2);
+	a->Vw = SQRT_2p3*((-1)*Va/2 - SQRT_3*Vb/2);
 }
 
 int16_t pi_control(pi_param_t *a, int16_t meas){
