@@ -16,7 +16,6 @@ int16_t dSW_state(void){
 	result |= HAL_GPIO_ReadPin(dSW2_GPIO_Port,dSW2_Pin);
 	result <<= 1;
 	result |= HAL_GPIO_ReadPin(dSW1_GPIO_Port,dSW1_Pin);
-	result <<= 1;
 
 	return result;
 }

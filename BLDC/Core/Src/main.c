@@ -107,7 +107,7 @@ int main(void)
 {
   /* USER CODE BEGIN 1 */
 	int raw = 0;
-	int dSW = 0;
+	int16_t dSW = 0;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -160,19 +160,22 @@ int main(void)
 
 		  switch(dSW){
 		  	  case 0:
-		  		  MD_EN_ON;
+		  		  MD_EN_OFF;
 		  	  	  break;
 		  	  case 1:
 		  		  MD_EN_ON;
 		  		  break;
 		  	  case 2:
+		  		  MD_EN_OFF;
 				  break;
-			  case 3:
+			  case 4:
+				  MD_EN_OFF;
 				  break;
 			  default:
-				  MD_EN_ON;
+				  MD_EN_OFF;
 				  break;
 		  }
+		  g_dSW_cnt = 0;
 	  }
   }
   /* USER CODE END 3 */

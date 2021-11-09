@@ -166,14 +166,14 @@ void DMA1_Channel1_IRQHandler(void)
 void TIM1_BRK_UP_TRG_COM_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM1_BRK_UP_TRG_COM_IRQn 0 */
-	g_posi_arr[0] += 1;
+	g_posi_arr[0] += 100;
 	g_posi_arr[1] = g_posi_arr[0];
 	if(g_posi_arr[0]>=3600){
 		g_posi_arr[0] = 0;
 	}
 	//g_posi_arr[0] = def_AS5600_Read_Raw;
 	//g_posi_arr[0] *= 360/4096;
-	g_value.Vq = 0.8;//pi_control(&g_pi_val, g_posi_arr[0]);
+	g_value.Vq = 0.5;//pi_control(&g_pi_val, g_posi_arr[0]);
 	g_value.Vd = 0;
 	dq2uvw(&g_value, g_posi_arr[0]);
 	Set_inverter(g_value, htim1.Init.Period);
